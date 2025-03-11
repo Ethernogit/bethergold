@@ -16,15 +16,7 @@ export class AuthService {
   }
 
   public loginUser(email: string, password: string): Observable<any> {
-    console.log(email, password);
-    console.log("loginUser");
-    // const url = `${environment.api}/v1/auth/login`;
-    // return this.http.post(url, { email, password });
-    const formData = new FormData();
-    formData.append('email', email);
-    formData.append('password', password);
-    
-    return this.http.post<any>(environment.api+'/v1/auth/login',formData);
-
+    const body = { email, password };
+    return this.http.post<any>(`${environment.api}/v1/auth/login`, body);
   }
 }

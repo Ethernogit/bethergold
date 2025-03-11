@@ -7,7 +7,7 @@ import { AuthService } from '../../shared/services/auth.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [ UtilsModule]
+  imports: [UtilsModule]
 })
 export class LoginComponent {
   userForm: FormGroup;
@@ -21,13 +21,10 @@ export class LoginComponent {
     });
   }
   submit() {
-    console.log("no validado")
     if (this.userForm.valid) {
-      console.log("valido");
-      
       this.authService.loginUser(this.userForm.value.email, this.userForm.value.password).subscribe({
         next: (response) => {
-         console.log(response);
+          console.log(response);
         },
         error: (error) => {
           console.log(error);
