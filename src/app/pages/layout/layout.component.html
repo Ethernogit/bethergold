@@ -1,0 +1,60 @@
+<!-- 
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <mat-list role="list">
+        <a  mat-list-item  routerLink="/settings" class="text-center custom-button">
+          <span class="spanlist">Config</span><mat-icon class="text-black">settings</mat-icon>
+        </a>
+        <mat-list-item role="listitem">Item 1</mat-list-item>
+        <mat-list-item role="listitem">Item 2</mat-list-item>
+        <mat-list-item role="listitem">Item 3</mat-list-item>
+      </mat-list>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <button type="button"  class="btn btn-warning" mat-button (click)="drawer.toggle()">
+        Toggle sidenav
+      </button>
+      <router-outlet></router-outlet>
+
+    </div>
+  
+  </mat-drawer-container> -->
+  <mat-drawer-container class="example-container">
+    <mat-drawer 
+      #drawer 
+      class="example-sidenav" 
+      mode="side" 
+      [opened]="isExpanded"
+      [ngClass]="{'collapsed': !isExpanded}">
+      
+      <!-- Botón para expandir/colapsar el menú -->
+      <div class="toggle-button" (click)="toggleDrawer()">
+        <mat-icon>{{ isExpanded ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+      </div>
+  
+      <mat-list>
+        <a mat-list-item routerLink="/dashboard">
+          <mat-icon>dashboard</mat-icon>
+          <span *ngIf="isExpanded">Dashboard</span>
+        </a>
+        <a mat-list-item routerLink="/products">
+          <mat-icon>inventory_2</mat-icon>
+          <span *ngIf="isExpanded">Products</span>
+        </a>
+        <a mat-list-item routerLink="/statistics">
+          <mat-icon>bar_chart</mat-icon>
+          <span *ngIf="isExpanded">Statistics</span>
+        </a>
+        <a mat-list-item routerLink="/settings">
+          <mat-icon>settings</mat-icon>
+          <span *ngIf="isExpanded">Settings</span>
+        </a>
+      </mat-list>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-container>
+  
