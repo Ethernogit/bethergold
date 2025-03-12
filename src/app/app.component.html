@@ -1,1 +1,9 @@
-<router-outlet />
+<div *ngIf="shouldShowSidebar()">
+    <app-left-sidebar [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+        (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)" />
+</div>
+
+
+<div class="main-content" [ngClass]="{'full-width': !shouldShowSidebar()}">
+    <app-main [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()" [screenWidth]="screenWidth()"></app-main>
+</div>

@@ -1,0 +1,22 @@
+.full-width {
+    width: 100%;
+    margin-left: 0;
+}
+
+.sidenav {
+    width: 250px;
+    transition: width 0.3s;
+}
+
+.sidenav-collapsed {
+    width: 0;
+}
+
+.main-content {
+    flex-grow: 1;
+    transition: margin-left 0.3s;
+}
+
+.main-content.full-width {
+    margin-left: 0;
+}
