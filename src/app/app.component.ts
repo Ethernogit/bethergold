@@ -3,10 +3,10 @@ import { LeftSidebarComponent } from './left-sidebar/left-sidebar.component';
 import { MainComponent } from './main/main.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common'; // Importa CommonModule
-
+import { LoginComponent } from './login/login.component';
 @Component({
   selector: 'app-root',
-  imports: [LeftSidebarComponent, MainComponent, CommonModule],
+  imports: [LeftSidebarComponent, MainComponent, CommonModule,LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

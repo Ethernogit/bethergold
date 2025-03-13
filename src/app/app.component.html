@@ -3,7 +3,12 @@
         (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)" />
 </div>
 
-
-<div class="main-content" [ngClass]="{'full-width': !shouldShowSidebar()}">
+@if (shouldShowSidebar()) {
     <app-main [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()" [screenWidth]="screenWidth()"></app-main>
-</div>
+
+}
+@if (!shouldShowSidebar()) {
+    <app-login/>
+}
+<!-- <div class="main-content" [ngClass]="{'full-width': !shouldShowSidebar()}">
+</div> -->

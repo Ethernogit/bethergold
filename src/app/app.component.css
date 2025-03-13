@@ -20,3 +20,15 @@
 .main-content.full-width {
     margin-left: 0;
 }
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content.full-width {
+    width: 100%;
+}
+
+.main-content {
+    transition: width 0.3s;
+}
