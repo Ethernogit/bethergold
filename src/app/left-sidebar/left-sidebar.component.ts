@@ -3,10 +3,10 @@ import { Component, input, output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-    selector: 'app-left-sidebar',
-    imports: [RouterModule, CommonModule],
-    templateUrl: './left-sidebar.component.html',
-    styleUrl: './left-sidebar.component.css'
+  selector: 'app-left-sidebar',
+  imports: [RouterModule, CommonModule],
+  templateUrl: './left-sidebar.component.html',
+  styleUrl: './left-sidebar.component.css'
 })
 export class LeftSidebarComponent {
   isLeftSidebarCollapsed = input.required<boolean>();
@@ -18,9 +18,9 @@ export class LeftSidebarComponent {
       label: 'Dashboard',
     },
     {
-      routeLink: 'products',
+      routeLink: 'productos',
       icon: 'fal fa-box-open',
-      label: 'Products',
+      label: 'Productos',
     },
     {
       routeLink: 'pages',

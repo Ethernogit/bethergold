@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
+import { ToolbarComponent } from '../layout/toolbar/toolbar.component';
 @Component({
-    selector: 'app-main',
-    imports: [RouterOutlet, CommonModule],
-    templateUrl: './main.component.html',
-    styleUrl: './main.component.css'
+  selector: 'app-main',
+  imports: [RouterOutlet, CommonModule, ToolbarComponent],
+  templateUrl: './main.component.html',
+  styleUrl: './main.component.css'
 })
 export class MainComponent {
   isLeftSidebarCollapsed = input.required<boolean>();

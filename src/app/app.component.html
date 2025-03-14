@@ -4,11 +4,10 @@
 </div>
 
 @if (shouldShowSidebar()) {
-    <app-main [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()" [screenWidth]="screenWidth()"></app-main>
-
+<app-main [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()" [screenWidth]="screenWidth()"></app-main>
 }
 @if (!shouldShowSidebar()) {
-    <app-login/>
+<app-login />
 }
 <!-- <div class="main-content" [ngClass]="{'full-width': !shouldShowSidebar()}">
 </div> -->

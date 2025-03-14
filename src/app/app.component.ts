@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common'; // Importa CommonModule
 import { LoginComponent } from './login/login.component';
 @Component({
   selector: 'app-root',
-  imports: [LeftSidebarComponent, MainComponent, CommonModule,LoginComponent],
+  imports: [LeftSidebarComponent, MainComponent, CommonModule, LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
