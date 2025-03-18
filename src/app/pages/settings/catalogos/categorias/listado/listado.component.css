@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Ajusta según el tamaño esperado de la tabla */
+  }
+  .filter-container {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+  }
+  
+  .filter-input {
+    flex: 1;
+    max-width: 80%;
+  }

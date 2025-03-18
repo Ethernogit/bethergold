@@ -1,12 +1,14 @@
 .sidenav {
-  background: #012a5b;
+  background-color: transparent !important;
   transition: all 0.5s ease;
   position: fixed;
   z-index: 1;
   top: 0;
   width: 16.5625rem;
   height: 100vh;
-  box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+  /* box-shadow: 0.063rem 0 1.25rem 0 #8690a3; */
+  box-shadow: none;
+  border: none;
 }
 .sidenav-collapsed {
   width: 5rem;
@@ -69,7 +71,7 @@
   height: 3rem;
   color: #f3f3f3;
   text-decoration: none;
-  border-radius: 0.625rem;
+  border-radius:1.625rem;
   transition: all 0.3s ease;
 }
 .sidenav-nav .sidenav-nav-item .sidenav-nav-link .sidenav-link-icon {

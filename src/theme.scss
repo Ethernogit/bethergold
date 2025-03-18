@@ -1,0 +1,18 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+// $primary-button-palette: mat.generate-palette(#A8DADC, 500);
+
+// html {
+//   @include mat.theme((
+//     color: (
+//       theme-type: light,
+//       primary: $primary-button-palette,
+//       tertiary: mat.$blue-palette,
+//     ),
+//     typography: Roboto,
+//     density: 0,
+//   ));
+// }

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
+import {MatIconModule} from '@angular/material/icon';
 @Component({
   selector: 'app-toolbar',
-  imports: [],
+  imports: [MatIconModule],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.css'
 })

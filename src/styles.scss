@@ -1,38 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material' as mat;
-
+@use './styles/theme-colors' as theme;
+ 
 html,
 body {
     height: 100%;
 }
 
 body {
+    background-color: #395050 !important;
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-$light-theme: mat.define-light-theme((color: (primary: mat.define-palette(mat.$indigo-palette),
-                accent: mat.define-palette(mat.$pink-palette),
-            ),
-            typography: mat.define-typography-config(),
-            density: 0));
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html {
+    @include mat.core();
+    
+    @include mat.theme((
+      color: (
+        primary: theme.$primary-palette,
+        tertiary: theme.$tertiary-palette,
+        // secondary: theme.$secondary-palette,
+        // warn: $theme.$,
 
-// Definir colores principales para el tema oscuro
-$dark-theme: mat.define-dark-theme((color: (primary: mat.define-palette(mat.$blue-grey-palette),
-                accent: mat.define-palette(mat.$deep-orange-palette),
-            ),
-            typography: mat.define-typography-config(),
-            density: 0));
-
-// Estilos aplicados dependiendo de la clase del body
-.light-theme {
-    @include mat.all-component-themes($light-theme);
-    background-color: #ffffff;
-    color: #000;
-}
-
-.dark-theme {
-    @include mat.all-component-themes($dark-theme);
-    background-color: #121212;
-    color: #fff;
+      ),
+      density: 0,
+    ));
+  
+    @include theme.high-contrast-overrides(light);
+  }
+.delete-button{
+  background-color: #c04b4b !important;
 }

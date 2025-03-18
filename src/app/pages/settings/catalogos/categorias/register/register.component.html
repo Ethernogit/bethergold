@@ -1,0 +1,18 @@
+<div class="row justify-content-center text-center">
+    <div class="col-12">
+      <h2 mat-dialog-title >Registrar Categoria</h2>
+      <form [formGroup]="categoriaForm" (ngSubmit)="saveCategoria()">
+        <mat-dialog-content>
+          <p>Ingrese el nombre de la categoria</p>
+            <mat-form-field>
+                <mat-label>Categoria</mat-label>
+                <input matInput formControlName="categoria"/>
+            </mat-form-field>
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button mat-raised-button type="submit" [disabled]="categoriaForm.invalid">Guardar</button>
+            <button mat-button mat-dialog-close>Close</button>
+        </mat-dialog-actions>
+      </form>  
+    </div>
+</div>

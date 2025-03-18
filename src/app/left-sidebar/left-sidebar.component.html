@@ -7,7 +7,7 @@
       <i class="fal fa-bars"></i>
     </button>
     @if (!isLeftSidebarCollapsed()) {
-      <div class="logo-text">App</div>
+      <div class="logo-text">Bether Gold</div>
       <button class="btn-close" (click)="closeSidenav()">
         <i class="fal fa-times close-icon"></i>
       </button>
@@ -16,17 +16,50 @@
   <div class="sidenav-nav">
     @for (item of items; track $index) {
       <li class="sidenav-nav-item">
-        <a
-          class="sidenav-nav-link"
-          [routerLink]="item.routeLink"
+        @if (item.label === "Settings") {
+          <a
+          [style]="{ backgroundColor: item.backgroundColor, color: item.color }"
+          class="sidenav-nav-link fs-5"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
+          [matMenuTriggerFor]="menu"
         >
           <i class="sidenav-link-icon" [class]="item.icon"></i>
           @if (!isLeftSidebarCollapsed()) {
             <span class="sidenav-link-text">{{ item.label }}</span>
           }
         </a>
+          <mat-menu #menu="matMenu">
+            <a 
+              mat-menu-item
+              routerLink="setting/catalogos"
+            >
+              <mat-icon>dialpad</mat-icon>
+              <span>Catalogo</span>
+            </a>
+            <button mat-menu-item>
+              <mat-icon>voicemail</mat-icon>
+              <span>Check voice mail</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>notifications_off</mat-icon>
+              <span>Disable alerts</span>
+            </button>
+          </mat-menu>
+        }@else{
+          <a
+            [style]="{ backgroundColor: item.backgroundColor, color: item.color }"
+            class="sidenav-nav-link fs-5"
+            [routerLink]="item.routeLink"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <i class="sidenav-link-icon" [class]="item.icon"></i>
+            @if (!isLeftSidebarCollapsed()) {
+              <span class="sidenav-link-text">{{ item.label }}</span>
+            }
+          </a>
+        }
       </li>
     }
   </div>

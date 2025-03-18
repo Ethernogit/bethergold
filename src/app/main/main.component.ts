@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { ToolbarComponent } from '../layout/toolbar/toolbar.component';
 @Component({
   selector: 'app-main',
-  imports: [RouterOutlet, CommonModule, ToolbarComponent],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })

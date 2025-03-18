@@ -1,0 +1,8 @@
+<h2 mat-dialog-title class="text-center">{{data.titulo}}</h2>
+<mat-dialog-content class="text-center">
+  {{data.mensaje}}
+</mat-dialog-content>
+<mat-dialog-actions class="text-center justify-content-center">
+    <button mat-fab extended (click)="onCancel()">Cancelar</button>
+    <button mat-fab extended (click)="onConfirm()" cdkFocusInitial>Confirmar</button>
+</mat-dialog-actions>

@@ -1,0 +1,8 @@
+.toolbar {
+    color: #fff;
+    opacity: 70%;
+  }
+.btn-toolbar{
+    background-color: white !important;
+    border-radius: 1.625rem !important;
+}

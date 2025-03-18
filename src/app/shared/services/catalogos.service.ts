@@ -1,0 +1,36 @@
+import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment.development'; // Importa environment
+import { HttpClient } from '@angular/common/http';
+import { Categoria } from '../../interfaces/categoria';
+import { Observable } from 'rxjs';
+import { Subcategoria } from '../../interfaces/subcategoria';
+@Injectable({
+  providedIn: 'root'
+})
+export class CatalogosService {
+
+  constructor(private http: HttpClient) { }
+  registrarCategoria(nombre: string){
+    const body = { nombre };
+    return this.http.post<any>(`${environment.api}/v1/catalogos/categorias`, body);
+  }
+  getCategorias(): Observable<Categoria[]> {
+    return this.http.get<Categoria[]>(`${environment.api}/v1/catalogos/categorias`);
+  }
+  eliminarCategoria(id: string){
+    return this.http.delete<any>(`${environment.api}/v1/catalogos/categoria/${id}`);
+  }
+  registrarSubcategoria(categoriaId:string,nombre: string){
+    const body = { 
+      categoriaId,
+      nombre 
+    };
+    return this.http.post<any>(`${environment.api}/v1/catalogos/subcategorias`, body);
+  }
+  getSubcategorias(idCategoria: string): Observable<Subcategoria[]> {
+    return this.http.get<Subcategoria[]>(`${environment.api}/v1/catalogos/subcategorias/${idCategoria}`);
+  }
+  eliminarSubcategoria(id: string){
+    return this.http.delete<any>(`${environment.api}/v1/catalogos/subcategorias/${id}`);
+  }
+}

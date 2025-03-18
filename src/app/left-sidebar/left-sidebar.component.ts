@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-left-sidebar',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule,MatMenuModule,MatIconModule],
   templateUrl: './left-sidebar.component.html',
   styleUrl: './left-sidebar.component.css'
 })
@@ -16,21 +18,22 @@ export class LeftSidebarComponent {
       routeLink: 'dashboard',
       icon: 'fal fa-home',
       label: 'Dashboard',
+      backgroundColor: '#ffff',
+      color: '#000'
     },
     {
       routeLink: 'productos',
       icon: 'fal fa-box-open',
       label: 'Productos',
-    },
-    {
-      routeLink: 'pages',
-      icon: 'fal fa-file',
-      label: 'Pages',
+      backgroundColor: '#ffff',
+      color: '#000'
     },
     {
       routeLink: 'settings',
       icon: 'fal fa-cog',
       label: 'Settings',
+      backGroundColor: '#ffff',
+      color: '#000'
     },
   ];
 
@@ -40,5 +43,8 @@ export class LeftSidebarComponent {
 
   closeSidenav(): void {
     this.changeIsLeftSidebarCollapsed.emit(true);
+  }
+  toggleSubmenu(item:any): void {
+    item.expanded = !item.expanded;
   }
 }
