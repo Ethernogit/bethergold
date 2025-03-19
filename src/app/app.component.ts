@@ -11,7 +11,7 @@ import { LoginComponent } from './login/login.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  isLeftSidebarCollapsed = signal<boolean>(false);
+  isLeftSidebarCollapsed = signal<boolean>(true);
   screenWidth = signal<number>(typeof window !== 'undefined' ? window.innerWidth : 0);
 
   constructor(private router: Router, private route: ActivatedRoute) { }

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Categoria } from '../../interfaces/categoria';
 import { Observable } from 'rxjs';
 import { Subcategoria } from '../../interfaces/subcategoria';
+import { Usuarios } from '../../interfaces/Usuarios';
 @Injectable({
   providedIn: 'root'
 })
@@ -32,5 +33,9 @@ export class CatalogosService {
   }
   eliminarSubcategoria(id: string){
     return this.http.delete<any>(`${environment.api}/v1/catalogos/subcategorias/${id}`);
+  }
+  /**Usuarios */
+  getUsuarios(): Observable<Usuarios[]> {
+    return this.http.get<Usuarios[]>(`${environment.api}/v1/usuarios`);
   }
 }

@@ -9,7 +9,7 @@ import { ToolbarComponent } from '../layout/toolbar/toolbar.component';
   styleUrl: './main.component.css'
 })
 export class MainComponent {
-  isLeftSidebarCollapsed = input.required<boolean>();
+  isLeftSidebarCollapsed = input.required<boolean>() ;
   screenWidth = input.required<number>();
   sizeClass = computed(() => {
     const isLeftSidebarCollapsed = this.isLeftSidebarCollapsed();

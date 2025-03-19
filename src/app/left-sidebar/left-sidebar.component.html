@@ -18,34 +18,15 @@
       <li class="sidenav-nav-item">
         @if (item.label === "Settings") {
           <a
-          [style]="{ backgroundColor: item.backgroundColor, color: item.color }"
-          class="sidenav-nav-link fs-5"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          [matMenuTriggerFor]="menu"
-        >
+            [style]="{ backgroundColor: item.backgroundColor, color: item.color }"
+            class="sidenav-nav-link fs-5 active"
+            [matMenuTriggerFor]="menu"
+          >
           <i class="sidenav-link-icon" [class]="item.icon"></i>
           @if (!isLeftSidebarCollapsed()) {
             <span class="sidenav-link-text">{{ item.label }}</span>
           }
         </a>
-          <mat-menu #menu="matMenu">
-            <a 
-              mat-menu-item
-              routerLink="setting/catalogos"
-            >
-              <mat-icon>dialpad</mat-icon>
-              <span>Catalogo</span>
-            </a>
-            <button mat-menu-item>
-              <mat-icon>voicemail</mat-icon>
-              <span>Check voice mail</span>
-            </button>
-            <button mat-menu-item>
-              <mat-icon>notifications_off</mat-icon>
-              <span>Disable alerts</span>
-            </button>
-          </mat-menu>
         }@else{
           <a
             [style]="{ backgroundColor: item.backgroundColor, color: item.color }"
@@ -64,3 +45,32 @@
     }
   </div>
 </div>
+<mat-menu #menu="matMenu">
+  <a 
+    mat-menu-item
+    [matMenuTriggerFor]="catalogos">
+    <mat-icon>apps</mat-icon>
+    <span>Catalogos</span>
+  </a>
+  <!-- <button mat-menu-item>
+    <mat-icon>person</mat-icon>
+    <span>Usuarios</span>
+  </button> -->
+</mat-menu>
+<mat-menu #catalogos="matMenu">
+  <button 
+    mat-menu-item 
+    routerLink="settings/catalogos/categorias">
+    Categorias
+  </button>
+  <button 
+    mat-menu-item 
+    routerLink="settings/catalogos/usuarios">
+    Usuarios
+  </button>
+  <button 
+    mat-menu-item 
+    routerLink="settings/catalogos/sucursales">
+    Sucursales
+  </button>
+</mat-menu>
