@@ -7,7 +7,7 @@
       <i class="fal fa-bars"></i>
     </button>
     @if (!isLeftSidebarCollapsed()) {
-      <div class="logo-text">Bether Gold</div>
+      <!-- <div class="logo-text">Bether Gold</div> -->
       <button class="btn-close" (click)="closeSidenav()">
         <i class="fal fa-times close-icon"></i>
       </button>
@@ -19,7 +19,7 @@
         @if (item.label === "Settings") {
           <a
             [style]="{ backgroundColor: item.backgroundColor, color: item.color }"
-            class="sidenav-nav-link fs-5 active"
+            class="sidenav-nav-link fs-6 active"
             [matMenuTriggerFor]="menu"
           >
           <i class="sidenav-link-icon" [class]="item.icon"></i>
@@ -30,7 +30,7 @@
         }@else{
           <a
             [style]="{ backgroundColor: item.backgroundColor, color: item.color }"
-            class="sidenav-nav-link fs-5"
+            class="sidenav-nav-link fs-6"
             [routerLink]="item.routeLink"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
@@ -73,4 +73,9 @@
     routerLink="settings/catalogos/sucursales">
     Sucursales
   </button>
+  <button 
+  mat-menu-item 
+  routerLink="settings/catalogos/roles">
+  Roles y permisos
+</button>
 </mat-menu>

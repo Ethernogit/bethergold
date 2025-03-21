@@ -1,0 +1,34 @@
+<div class="container">
+    <!-- Lista de Roles -->
+    <mat-list role="list">
+        @for (role of roles; track $index) {
+            <mat-list-item
+            (click)="selectRole(role)"
+          >
+            {{ role.name }}
+          </mat-list-item>
+        }
+     
+    </mat-list>
+  
+    <!-- Panel de Permisos -->
+    @if (selectedRole) {
+        <div class="permissions-panel">
+            <h3>{{ selectedRole.name }}</h3>
+            @for (perm of selectedRole.permissions; track $index) {
+                <mat-checkbox
+              
+            >
+              {{ perm.name }}
+            </mat-checkbox>
+            }
+            
+        
+            <button mat-raised-button color="primary" (click)="savePermissions()">
+              Save
+            </button>
+          </div>
+    }
+
+  </div>
+  

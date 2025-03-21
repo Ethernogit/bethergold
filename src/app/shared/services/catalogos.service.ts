@@ -5,6 +5,7 @@ import { Categoria } from '../../interfaces/categoria';
 import { Observable } from 'rxjs';
 import { Subcategoria } from '../../interfaces/subcategoria';
 import { Usuarios } from '../../interfaces/Usuarios';
+import { Roles } from '../../interfaces/rolespermisos';
 @Injectable({
   providedIn: 'root'
 })
@@ -37,5 +38,9 @@ export class CatalogosService {
   /**Usuarios */
   getUsuarios(): Observable<Usuarios[]> {
     return this.http.get<Usuarios[]>(`${environment.api}/v1/usuarios`);
+  }
+
+  getRoles(): Observable<Roles> {
+    return this.http.get<Roles>(`${environment.api}/v1/catalogos/roles`);
   }
 }
