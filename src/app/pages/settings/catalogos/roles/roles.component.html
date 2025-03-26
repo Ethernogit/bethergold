@@ -4,41 +4,54 @@
       <h1 class="text-light">Roles y permisos</h1>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-3">
     <div class="col-4">
       <mat-list role="list">
-        <mat-list-item class="text-uppercase text-light font-monospace fs-5 roleslist"
-          role="listitem">Administrador</mat-list-item>
-        <mat-list-item role="listitem">Vendedor</mat-list-item>
-        <mat-list-item role="listitem">Item 3</mat-list-item>
+        @for (role of roles; track role._id) {
+          <mat-list-item class="text-uppercase font-monospace fs-5 roleslist" (click)="selectRole(role)">
+            {{ role.name }}
+          </mat-list-item>
+        }
       </mat-list>
     </div>
+    <div class="col-8">
+      @if (selectedRole) {
+        <div class="permissions-panel">
+          <!-- <h3 class="text-light">{{ selectedRole.name }}</h3> -->
+          <mat-accordion>
+            @for (group of permissionGroups; track group.name) {
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title class="text-light">{{ group.name }}</mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="permissions-list">
+                  @for (permission of group.permissions; track permission._id) {
+                    <div class="permission-item mb-2">
+                      <mat-checkbox
+                        [checked]="permission.checked"
+                        (change)="togglePermission(permission)"
+                        class="text-light">
+                        {{ permission.name }}
+                      </mat-checkbox>
+                      <small class="text-muted d-block ms-4">{{ permission.description }}</small>
+                    </div>
+                  }
+                </div>
+              </mat-expansion-panel>
+            }
+          </mat-accordion>
+
+          <div class="mt-4">
+            <button mat-raised-button color="primary" (click)="savePermissions()">
+              Guardar Permisos
+            </button>
+          </div>
+        </div>
+      } @else {
+        <div class="text-center text-light">
+          <p>Selecciona un rol para ver y editar sus permisos</p>
+        </div>
+      }
+    </div>
   </div>
-  <!-- Lista de Roles -->
-  <mat-list role="list">
-    @for (role of roles; track $index) {
-    <mat-list-item (click)="selectRole(role)">
-      {{ role.name }}
-    </mat-list-item>
-    }
-
-  </mat-list>
-
-  <!-- Panel de Permisos -->
-  @if (selectedRole) {
-  <div class="permissions-panel">
-    <h3>{{ selectedRole.name }}</h3>
-    @for (perm of selectedRole.permissions; track $index) {
-    <mat-checkbox>
-      {{ perm.name }}
-    </mat-checkbox>
-    }
-
-
-    <button mat-raised-button color="primary" (click)="savePermissions()">
-      Save
-    </button>
-  </div>
-  }
-
 </div>

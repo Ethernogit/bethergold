@@ -2,3 +2,158 @@
     color: #fff !important;
     border-bottom: 1px solid rgba(255, 255, 255, .5);
 }
+
+::ng-deep .mat-mdc-list-item {
+    color: #fff !important;
+}
+
+::ng-deep .mat-mdc-list-item .mdc-list-item__primary-text {
+    color: #fff !important;
+}
+
+::ng-deep .mdc-list-item__primary-text {
+    color: #fff !important;
+}
+
+/* Estilos para los checkboxes y texto */
+::ng-deep .mat-mdc-checkbox {
+    color: #fff !important;
+}
+
+::ng-deep .mat-mdc-checkbox-label {
+    color: #fff !important;
+}
+
+::ng-deep .mat-mdc-checkbox .mdc-checkbox {
+    color: #fff !important;
+}
+
+::ng-deep .mat-mdc-checkbox .mdc-checkbox__background {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+::ng-deep .mat-mdc-checkbox .mdc-checkbox__checkmark {
+    color: #fff !important;
+}
+
+::ng-deep .mat-mdc-checkbox .mdc-checkbox__checkmark-path {
+    stroke: #fff !important;
+}
+
+::ng-deep .mat-mdc-checkbox .mdc-checkbox__mixedmark {
+    background-color: #fff !important;
+}
+
+::ng-deep .mat-internal-form-field > label {
+    color: #fff !important;
+}
+
+/* Estilos para las descripciones de permisos */
+.permission-item small {
+    color:rgb(224 219 0 / 70%) !important;
+}
+
+/* Estilos para los títulos de grupos */
+.permission-group h4 {
+    color: #fff !important;
+    margin-bottom: 1rem;
+}
+
+/* Estilos para el título del rol seleccionado */
+.permissions-panel h3 {
+    color: #fff !important;
+    margin-bottom: 1.5rem;
+}
+
+/* Estilos para el árbol de permisos */
+.permissions-tree {
+    background: transparent;
+    color: #fff;
+}
+
+::ng-deep .mat-tree {
+    background: transparent;
+}
+
+::ng-deep .mat-tree-node {
+    color: #fff;
+}
+
+::ng-deep .mat-tree-node:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::ng-deep .mat-tree-node .mat-icon-button {
+    color: #fff;
+}
+
+::ng-deep .mat-tree-node .mat-icon {
+    color: #fff;
+}
+
+::ng-deep .mat-tree-node .mat-checkbox {
+    margin-right: 8px;
+}
+
+::ng-deep .mat-tree-node .mat-checkbox-label {
+    color: #fff;
+}
+
+::ng-deep .mat-tree-node small {
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
+    margin-left: 32px;
+    font-size: 0.85em;
+}
+
+/* Estilos para los nodos expandibles */
+::ng-deep .mat-tree-node[aria-expanded="true"] {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Estilos para el botón de guardar */
+.mt-4 {
+    margin-top: 1.5rem;
+    text-align: right;
+}
+
+/* Estilos para los paneles expandibles */
+::ng-deep .mat-expansion-panel {
+    background: transparent !important;
+    color: #fff !important;
+    margin-bottom: 0.5rem;
+}
+
+::ng-deep .mat-expansion-panel-header {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+::ng-deep .mat-expansion-panel-header:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+::ng-deep .mat-expansion-panel-body {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+::ng-deep .mat-expansion-panel-header-title {
+    color: #fff !important;
+}
+
+::ng-deep .mat-expansion-indicator::after {
+    color: #fff !important;
+}
+
+::ng-deep .mat-expansion-panel-header .mat-expansion-indicator::after {
+    color: #fff !important;
+}
+
+::ng-deep .mat-expansion-panel-header .mat-expansion-indicator {
+    color: #fff !important;
+}
+
+::ng-deep .mat-expansion-panel-header .mat-expansion-indicator::before {
+    color: #fff !important;
+}
