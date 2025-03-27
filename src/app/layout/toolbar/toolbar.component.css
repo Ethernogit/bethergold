@@ -1,8 +1,40 @@
 .toolbar {
-    color: #fff;
-    opacity: 70%;
-  }
-.btn-toolbar{
-    background-color: white !important;
-    border-radius: 1.625rem !important;
+  color: #fff;
+  opacity: 70%;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1rem;
+}
+
+.btn-toolbar {
+  background-color: transparent !important;
+  border: none !important;
+  color: #000 !important;
+  padding: 0.5rem;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-toolbar:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.btn-toolbar mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.container-fluid {
+  padding: 0;
 }

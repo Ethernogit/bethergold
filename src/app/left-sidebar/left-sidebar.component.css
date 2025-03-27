@@ -1,24 +1,57 @@
+.left-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 16.5625rem;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+  z-index: 1000;
+  overflow-x: hidden;
+}
+
+.left-sidebar.collapsed {
+  width: 5rem;
+}
+
+@media (max-width: 768px) {
+  .left-sidebar {
+    transform: translateX(-100%);
+  }
+
+  .left-sidebar.collapsed {
+    transform: translateX(0);
+  }
+}
+
 .sidenav {
   background-color: transparent !important;
   transition: all 0.5s ease;
   position: fixed;
   z-index: 1;
-  top: 0;
+  top: 80px;
+  /* Altura del toolbar */
   width: 12.5625rem;
-  height: 100vh;
+  height: calc(100vh - 80px);
+  /* Altura total menos la altura del toolbar */
   /* box-shadow: 0.063rem 0 1.25rem 0 #8690a3; */
   box-shadow: none;
   border: none;
 }
+
 .sidenav-collapsed {
   width: 5rem;
+  top: 15%;
 }
+
 .sidenav .logo-container {
   display: flex;
   align-items: center;
   padding: 0.938rem 0.938rem 0 0.938rem;
   width: 100%;
 }
+
 .sidenav .logo-container .logo {
   background: #fff;
   text-align: center;
@@ -31,12 +64,14 @@
   cursor: pointer;
   border: none;
 }
+
 .sidenav .logo-container .logo-text {
   margin-left: 1.5rem;
   font-size: 24px;
   font-weight: 700;
   color: #fff;
 }
+
 .sidenav .logo-container .btn-close {
   margin-left: auto;
   cursor: pointer;
@@ -46,6 +81,7 @@
   background-color: transparent;
   border: none;
 }
+
 .sidenav .logo-container .btn-close .fa-times {
   color: #fff;
   font-size: 24px;
@@ -61,19 +97,24 @@
   height: calc(100% - 3.65rem);
   cursor: pointer;
 }
+
 .sidenav-nav .sidenav-nav-item {
   width: 100%;
   margin-bottom: 0.625rem;
 }
+
 .sidenav-nav .sidenav-nav-item .sidenav-nav-link {
   display: flex;
   align-items: center;
   height: 3rem;
   color: #f3f3f3;
   text-decoration: none;
-  border-radius:1.625rem;
-  transition: all 0.3s ease;
+  border-radius: 1.625rem;
+  transition: all 0.5s ease;
+  white-space: nowrap;
+  overflow: hidden;
 }
+
 .sidenav-nav .sidenav-nav-item .sidenav-nav-link .sidenav-link-icon {
   font-size: 22px;
   width: 2rem;
@@ -81,9 +122,17 @@
   text-align: center;
   padding: 12px;
 }
+
 .sidenav-nav .sidenav-nav-item .sidenav-nav-link .sidenav-link-text {
   margin-left: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
+
+.sidenav:not(.sidenav-collapsed) .sidenav-nav-item .sidenav-nav-link .sidenav-link-text {
+  opacity: 1;
+}
+
 .sidenav-nav .sidenav-nav-item:hover .sidenav-nav-link {
   background-color: #fff;
   color: #000;
@@ -92,6 +141,7 @@
 .active {
   background-color: #fff;
 }
+
 .active .sidenav-link-icon,
 .active .sidenav-link-text {
   color: #000;

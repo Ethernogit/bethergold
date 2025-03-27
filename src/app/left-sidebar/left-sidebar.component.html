@@ -1,81 +1,46 @@
-<div
-  class="sidenav"
-  [ngClass]="isLeftSidebarCollapsed() ? 'sidenav-collapsed' : ''"
->
-  <div class="logo-container">
-    <button class="logo" (click)="toggleCollapse()">
-      <i class="fal fa-bars"></i>
-    </button>
-    @if (!isLeftSidebarCollapsed()) {
-      <!-- <div class="logo-text">Bether Gold</div> -->
-      <button class="btn-close" (click)="closeSidenav()">
-        <i class="fal fa-times close-icon"></i>
-      </button>
-    }
-  </div>
+<div class="sidenav" [ngClass]="isLeftSidebarCollapsed() ? 'sidenav-collapsed' : ''" (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()">
   <div class="sidenav-nav">
     @for (item of items; track $index) {
-      <li class="sidenav-nav-item">
-        @if (item.label === "Settings") {
-          <a
-            [style]="{ backgroundColor: item.backgroundColor, color: item.color }"
-            class="sidenav-nav-link fs-6 active"
-            [matMenuTriggerFor]="menu"
-          >
-          <i class="sidenav-link-icon" [class]="item.icon"></i>
-          @if (!isLeftSidebarCollapsed()) {
-            <span class="sidenav-link-text">{{ item.label }}</span>
-          }
-        </a>
-        }@else{
-          <a
-            [style]="{ backgroundColor: item.backgroundColor, color: item.color }"
-            class="sidenav-nav-link fs-6"
-            [routerLink]="item.routeLink"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            <i class="sidenav-link-icon" [class]="item.icon"></i>
-            @if (!isLeftSidebarCollapsed()) {
-              <span class="sidenav-link-text">{{ item.label }}</span>
-            }
-          </a>
+    <li class="sidenav-nav-item">
+      @if (item.label === "Settings") {
+      <a [style]="{ backgroundColor: item.backgroundColor, color: item.color }" class="sidenav-nav-link fs-6 active"
+        [matMenuTriggerFor]="menu">
+        <i class="sidenav-link-icon" [class]="item.icon"></i>
+        @if (!isLeftSidebarCollapsed()) {
+        <span class="sidenav-link-text">{{ item.label }}</span>
         }
-      </li>
+      </a>
+      }@else{
+      <a [style]="{ backgroundColor: item.backgroundColor, color: item.color }" class="sidenav-nav-link fs-6"
+        [routerLink]="item.routeLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <i class="sidenav-link-icon" [class]="item.icon"></i>
+        @if (!isLeftSidebarCollapsed()) {
+        <span class="sidenav-link-text">{{ item.label }}</span>
+        }
+      </a>
+      }
+    </li>
     }
   </div>
 </div>
 <mat-menu #menu="matMenu">
-  <a 
-    mat-menu-item
-    [matMenuTriggerFor]="catalogos">
+  <a mat-menu-item [matMenuTriggerFor]="catalogos">
     <mat-icon>apps</mat-icon>
     <span>Catalogos</span>
   </a>
-  <!-- <button mat-menu-item>
-    <mat-icon>person</mat-icon>
-    <span>Usuarios</span>
-  </button> -->
 </mat-menu>
 <mat-menu #catalogos="matMenu">
-  <button 
-    mat-menu-item 
-    routerLink="settings/catalogos/categorias">
+  <button mat-menu-item routerLink="settings/catalogos/categorias">
     Categorias
   </button>
-  <button 
-    mat-menu-item 
-    routerLink="settings/catalogos/usuarios">
+  <button mat-menu-item routerLink="settings/catalogos/usuarios">
     Usuarios
   </button>
-  <button 
-    mat-menu-item 
-    routerLink="settings/catalogos/sucursales">
+  <button mat-menu-item routerLink="settings/catalogos/sucursales">
     Sucursales
   </button>
-  <button 
-  mat-menu-item 
-  routerLink="settings/catalogos/roles">
-  Roles y permisos
-</button>
+  <button mat-menu-item routerLink="settings/catalogos/roles">
+    Roles y permisos
+  </button>
 </mat-menu>

@@ -1,16 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, input, output } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ToolbarComponent } from '../layout/toolbar/toolbar.component';
+
 @Component({
   selector: 'app-main',
-  imports: [RouterOutlet, CommonModule,ToolbarComponent],
+  standalone: true,
+  imports: [RouterOutlet, CommonModule, ToolbarComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
 export class MainComponent {
-  isLeftSidebarCollapsed = input.required<boolean>() ;
+  isLeftSidebarCollapsed = input.required<boolean>();
   screenWidth = input.required<number>();
+  changeIsLeftSidebarCollapsed = output<boolean>();
+
   sizeClass = computed(() => {
     const isLeftSidebarCollapsed = this.isLeftSidebarCollapsed();
     if (isLeftSidebarCollapsed) {

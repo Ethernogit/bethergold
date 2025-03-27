@@ -1,10 +1,10 @@
-<div *ngIf="shouldShowSidebar()">
-    <app-left-sidebar [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
-        (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)" />
-</div>
-
 @if (shouldShowSidebar()) {
-<app-main [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()" [screenWidth]="screenWidth()"></app-main>
+<app-left-sidebar [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+    (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)" />
+
+<app-main [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()" [screenWidth]="screenWidth()"
+    (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)">
+</app-main>
 }
 @if (!shouldShowSidebar()) {
 <app-login />

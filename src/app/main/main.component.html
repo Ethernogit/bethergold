@@ -1,4 +1,7 @@
+<app-toolbar [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+  (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed.emit($event)" [screenWidth]="screenWidth()">
+</app-toolbar>
+
 <div class="body" [ngClass]="sizeClass()">
-  <app-toolbar></app-toolbar>
   <router-outlet />
 </div>

@@ -4,9 +4,17 @@ import { MainComponent } from './main/main.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common'; // Importa CommonModule
 import { LoginComponent } from './login/login.component';
+import { ToolbarComponent } from './layout/toolbar/toolbar.component';
+
 @Component({
   selector: 'app-root',
-  imports: [LeftSidebarComponent, MainComponent, CommonModule, LoginComponent],
+  imports: [
+    LeftSidebarComponent,
+    MainComponent,
+    CommonModule,
+    LoginComponent,
+    ToolbarComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -27,9 +35,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (typeof window !== 'undefined') {
-      this.isLeftSidebarCollapsed.set(this.screenWidth() < 768);
-    }
+    // Siempre iniciar colapsado
+    this.isLeftSidebarCollapsed.set(true);
   }
 
   changeIsLeftSidebarCollapsed(isLeftSidebarCollapsed: boolean): void {

@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-left-sidebar',
-  imports: [RouterModule, CommonModule,MatMenuModule,MatIconModule],
+  imports: [RouterModule, CommonModule, MatMenuModule, MatIconModule],
   templateUrl: './left-sidebar.component.html',
   styleUrl: './left-sidebar.component.css'
 })
@@ -37,14 +37,19 @@ export class LeftSidebarComponent {
     },
   ];
 
-  toggleCollapse(): void {
-    this.changeIsLeftSidebarCollapsed.emit(!this.isLeftSidebarCollapsed());
+  onMouseEnter(): void {
+    if (this.isLeftSidebarCollapsed()) {
+      this.changeIsLeftSidebarCollapsed.emit(false);
+    }
   }
 
-  closeSidenav(): void {
-    this.changeIsLeftSidebarCollapsed.emit(true);
+  onMouseLeave(): void {
+    if (!this.isLeftSidebarCollapsed()) {
+      this.changeIsLeftSidebarCollapsed.emit(true);
+    }
   }
-  toggleSubmenu(item:any): void {
+
+  toggleSubmenu(item: any): void {
     item.expanded = !item.expanded;
   }
 }
