@@ -16,7 +16,7 @@ export class CatalogosService {
 
   constructor(private http: HttpClient) { }
 
-  registrarCategoria(nombre: string){
+  registrarCategoria(nombre: string) {
     const body = { nombre };
     return this.http.post<any>(`${environment.api}/v1/catalogos/categorias`, body);
   }
@@ -25,14 +25,14 @@ export class CatalogosService {
     return this.http.get<Categoria[]>(`${environment.api}/v1/catalogos/categorias`);
   }
 
-  eliminarCategoria(id: string){
+  eliminarCategoria(id: string) {
     return this.http.delete<any>(`${environment.api}/v1/catalogos/categoria/${id}`);
   }
 
-  registrarSubcategoria(categoriaId:string,nombre: string){
-    const body = { 
+  registrarSubcategoria(categoriaId: string, nombre: string) {
+    const body = {
       categoriaId,
-      nombre 
+      nombre
     };
     return this.http.post<any>(`${environment.api}/v1/catalogos/subcategorias`, body);
   }
@@ -41,7 +41,7 @@ export class CatalogosService {
     return this.http.get<Subcategoria[]>(`${environment.api}/v1/catalogos/subcategorias/${idCategoria}`);
   }
 
-  eliminarSubcategoria(id: string){
+  eliminarSubcategoria(id: string) {
     return this.http.delete<any>(`${environment.api}/v1/catalogos/subcategorias/${id}`);
   }
 
@@ -66,5 +66,9 @@ export class CatalogosService {
     // Enviamos solo los IDs de los permisos
     const permissionIds = permissions.map(permission => permission._id);
     return this.http.put(`${this.apiUrl}/v1/catalogos/roles/${roleId}/permisos`, { permissions: permissionIds });
+  }
+
+  registrarRol(rol: { name: string; slug: string }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/v1/catalogos/roles`, rol);
   }
 }

@@ -5,7 +5,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CatalogosService } from '../../../../shared/services/catalogos.service';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
+import { RegisterComponent } from './register/register.component';
+
 interface Permission {
   _id: string;
   name: string;
@@ -33,7 +37,8 @@ interface RolePermission {
     MatListModule,
     MatCheckboxModule,
     MatButtonModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatIconModule
   ],
   templateUrl: './roles.component.html',
   styleUrls: ['./roles.component.css']
@@ -46,8 +51,9 @@ export class RolesComponent implements OnInit {
 
   constructor(
     private catalogosService: CatalogosService,
-    private snackBar: MatSnackBar
-  ) {}
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.loadRoles();
@@ -77,7 +83,7 @@ export class RolesComponent implements OnInit {
 
   private organizePermissions(): void {
     const groups: { [key: string]: Permission[] } = {};
-    
+
     this.allPermissions.forEach(permission => {
       if (!groups[permission.group]) {
         groups[permission.group] = [];
@@ -193,6 +199,18 @@ export class RolesComponent implements OnInit {
       horizontalPosition: 'end',
       verticalPosition: 'top',
       panelClass: ['error-snackbar']
+    });
+  }
+
+  openModalRegistroRol(): void {
+    const dialogRef = this.dialog.open(RegisterComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.loadRoles();
+        this.showSuccess('Rol registrado correctamente');
+      }
     });
   }
 }

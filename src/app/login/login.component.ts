@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UtilsModule } from '../shared/modules/utils.module';
 import { AuthService } from '../shared/services/auth.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,6 +12,8 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class LoginComponent {
   userForm: FormGroup;
+  errorMessage: string = '';
+
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -21,17 +24,22 @@ export class LoginComponent {
       email: ['', [Validators.required, Validators.email]],
     });
   }
+
   submit() {
     if (this.userForm.valid) {
+      this.errorMessage = '';
       this.authService.loginUser(this.userForm.value.email, this.userForm.value.password).subscribe({
         next: (response) => {
-          console.log(response.token);
-          
-          localStorage.setItem('token', response.token);
-          this.router.navigate(['/dashboard']);
+          if (response.token) {
+            this.router.navigate(['/dashboard']);
+          } else {
+            this.errorMessage = 'Error en la respuesta del servidor';
+            this.authService.logout();
+          }
         },
         error: (error) => {
-          console.log(error);
+          this.errorMessage = error.error?.message || 'Error al iniciar sesión';
+          this.authService.logout();
         }
       });
     }
