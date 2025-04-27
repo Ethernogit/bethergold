@@ -153,12 +153,12 @@ $tertiary-palette: map.merge(map.get($_palettes, tertiary), $_rest);
 
 @mixin high-contrast-overrides($theme-type) {
   @include mat.theme-overrides((
-    primary: _high-contrast-value(#003234, #c6f9fb, $theme-type),
+    primary: _high-contrast-value(#36647B, #a8dadc, $theme-type),
     on-primary: _high-contrast-value(#ffffff, #000000, $theme-type),
-    primary-container: _high-contrast-value(#1d5052, #a8dadc, $theme-type),
+    primary-container: _high-contrast-value(#36647B, #a8dadc, $theme-type),
     on-primary-container: _high-contrast-value(#ffffff, #002122, $theme-type),
     inverse-primary: _high-contrast-value(#9ecfd1, #1c4f51, $theme-type),
-    primary-fixed: _high-contrast-value(#1d5052, #b9ecee, $theme-type),
+    primary-fixed: _high-contrast-value(#36647B, #b9ecee, $theme-type),
     primary-fixed-dim: _high-contrast-value(#00393b, #9ecfd1, $theme-type),
     on-primary-fixed: _high-contrast-value(#ffffff, #000000, $theme-type),
     on-primary-fixed-variant: _high-contrast-value(#ffffff, #001415, $theme-type),

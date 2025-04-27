@@ -1,46 +1,33 @@
-<div class="sidenav" [ngClass]="isLeftSidebarCollapsed() ? 'sidenav-collapsed' : ''" (mouseenter)="onMouseEnter()"
-  (mouseleave)="onMouseLeave()">
+<div class="sidenav" [ngClass]="isLeftSidebarCollapsed() ? 'sidenav-collapsed' : ''">
   <div class="sidenav-nav">
     @for (item of items; track $index) {
     <li class="sidenav-nav-item">
-      @if (item.label === "Settings") {
-      <a [style]="{ backgroundColor: item.backgroundColor, color: item.color }" class="sidenav-nav-link fs-6 active"
-        [matMenuTriggerFor]="menu">
-        <i class="sidenav-link-icon" [class]="item.icon"></i>
-        @if (!isLeftSidebarCollapsed()) {
-        <span class="sidenav-link-text">{{ item.label }}</span>
-        }
+      @if (item.hasMenu) {
+      <a class="sidenav-nav-link" [matMenuTriggerFor]="menu">
+        <mat-icon class="sidenav-link-icon">{{item.icon}}</mat-icon>
+        <span class="sidenav-link-text" [class.collapsed-text]="isLeftSidebarCollapsed()">{{ item.label }}</span>
       </a>
-      }@else{
-      <a [style]="{ backgroundColor: item.backgroundColor, color: item.color }" class="sidenav-nav-link fs-6"
-        [routerLink]="item.routeLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-        <i class="sidenav-link-icon" [class]="item.icon"></i>
-        @if (!isLeftSidebarCollapsed()) {
-        <span class="sidenav-link-text">{{ item.label }}</span>
+      <mat-menu #menu="matMenu">
+        @for(menuItem of item.menuItems; track menuItem.label) {
+        <button mat-menu-item [routerLink]="menuItem.routeLink">
+          {{menuItem.label}}
+        </button>
         }
+      </mat-menu>
+      } @else {
+      <a class="sidenav-nav-link" [routerLink]="item.routeLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon class="sidenav-link-icon">{{item.icon}}</mat-icon>
+        <span class="sidenav-link-text" [class.collapsed-text]="isLeftSidebarCollapsed()">{{ item.label }}</span>
       </a>
       }
     </li>
     }
+    <li class="sidenav-nav-item logout-item">
+      <a class="sidenav-nav-link" (click)="logout()">
+        <mat-icon class="sidenav-link-icon">logout</mat-icon>
+        <span class="sidenav-link-text" [class.collapsed-text]="isLeftSidebarCollapsed()">Cerrar sesión</span>
+      </a>
+    </li>
   </div>
 </div>
-<mat-menu #menu="matMenu">
-  <a mat-menu-item [matMenuTriggerFor]="catalogos">
-    <mat-icon>apps</mat-icon>
-    <span>Catalogos</span>
-  </a>
-</mat-menu>
-<mat-menu #catalogos="matMenu">
-  <button mat-menu-item routerLink="settings/catalogos/categorias">
-    Categorias
-  </button>
-  <button mat-menu-item routerLink="settings/catalogos/usuarios">
-    Usuarios
-  </button>
-  <button mat-menu-item routerLink="settings/catalogos/sucursales">
-    Sucursales
-  </button>
-  <button mat-menu-item routerLink="settings/catalogos/roles">
-    Roles y permisos
-  </button>
-</mat-menu>
+

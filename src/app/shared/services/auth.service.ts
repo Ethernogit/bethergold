@@ -12,6 +12,16 @@ export class AuthService {
 
   constructor(private http: HttpClient) { } // Inyecta HttpClient
 
+  private getDomain(): string {
+    const hostname = window.location.hostname;
+    // Si es localhost, retornamos el dominio completo
+    if (hostname === 'localhost') {
+      return 'bethergold';
+    }
+    // Para otros casos, obtenemos el primer segmento del dominio
+    return hostname.split('.')[0];
+  }
+
   public isAuthenticated(): boolean {
     if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
       const token = localStorage.getItem(this.TOKEN_KEY);
@@ -47,7 +57,12 @@ export class AuthService {
   }
 
   public loginUser(email: string, password: string): Observable<any> {
-    const body = { email, password };
+    const domain = this.getDomain();
+    const body = { 
+      email, 
+      password,
+      domain 
+    };
     return this.http.post<any>(`${environment.api}/v1/auth/login`, body).pipe(
       tap(response => {
         if (response.token) {

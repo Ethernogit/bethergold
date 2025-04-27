@@ -1,14 +1,13 @@
 .body {
   width: calc(100% - 5rem);
+  height: 100vh;
   margin-left: 5rem;
   z-index: 0;
   position: relative;
-  top: 64px;
-  /* Altura del toolbar */
-  transition: all 0.5s ease;
-  padding: 0;
-  min-height: calc(100vh - 64px);
-  /* Altura total menos la altura del toolbar */
+  top: 0;
+  transition: all .5s ease;
+  background-color: #E6EEF2;
+  padding: 2rem;
 }
 
 .body-trimmed {
@@ -19,6 +18,39 @@
 .body-md-screen {
   width: calc(100% - 5rem);
   margin-left: 5rem;
+}
+
+:host ::ng-deep {
+  .mat-button, .mat-raised-button {
+    background-color: #36647B;
+    color: white;
+    border-radius: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    text-transform: none;
+    box-shadow: none;
+  }
+
+  table {
+    width: 100%;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  th {
+    color: #333;
+    font-weight: 500;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  td {
+    color: #666;
+  }
+
+  .mat-icon-button {
+    color: #36647B;
+  }
 }
 
 @media (max-width: 768px) {

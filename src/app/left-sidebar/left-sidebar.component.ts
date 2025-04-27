@@ -1,41 +1,75 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, output } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-left-sidebar',
   imports: [RouterModule, CommonModule, MatMenuModule, MatIconModule],
   templateUrl: './left-sidebar.component.html',
-  styleUrl: './left-sidebar.component.css'
+  styleUrl: './left-sidebar.component.css',
+  standalone: true
 })
 export class LeftSidebarComponent {
   isLeftSidebarCollapsed = input.required<boolean>();
   changeIsLeftSidebarCollapsed = output<boolean>();
   items = [
     {
-      routeLink: 'dashboard',
-      icon: 'fal fa-home',
-      label: 'Dashboard',
-      backgroundColor: '#ffff',
-      color: '#000'
-    },
-    {
       routeLink: 'productos',
-      icon: 'fal fa-box-open',
+      icon: 'diamond',
       label: 'Productos',
-      backgroundColor: '#ffff',
-      color: '#000'
+      backgroundColor: 'transparent',
+      color: '#fff'
     },
     {
-      routeLink: 'settings',
-      icon: 'fal fa-cog',
-      label: 'Settings',
-      backGroundColor: '#ffff',
-      color: '#000'
+      routeLink: 'caja',
+      icon: 'point_of_sale',
+      label: 'Caja',
+      backgroundColor: 'transparent',
+      color: '#fff'
     },
+    {
+      routeLink: 'clientes',
+      icon: 'group',
+      label: 'Clientes',
+      backgroundColor: 'transparent',
+      color: '#fff'
+    },
+    {
+      icon: 'admin_panel_settings',
+      label: 'Admin',
+      backgroundColor: 'transparent',
+      color: '#fff',
+      hasMenu: true,
+      menuId: 'adminMenu',
+      menuItems: [
+        {
+          label: 'Catalogos',
+          routeLink: 'settings/catalogos'
+        },
+        {
+          label: 'Formularios ',
+          routeLink: 'settings/formularios'
+        },
+        {
+          label: 'Usuarios',
+          routeLink: 'settings/catalogos/usuarios'
+        },
+
+        {
+          label: 'Roles y permisos',
+          routeLink: 'settings/catalogos/roles'
+        }
+      ]
+    }
   ];
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   onMouseEnter(): void {
     if (this.isLeftSidebarCollapsed()) {
@@ -47,6 +81,11 @@ export class LeftSidebarComponent {
     if (!this.isLeftSidebarCollapsed()) {
       this.changeIsLeftSidebarCollapsed.emit(true);
     }
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
   toggleSubmenu(item: any): void {

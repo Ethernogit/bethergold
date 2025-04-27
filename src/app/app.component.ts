@@ -4,7 +4,6 @@ import { MainComponent } from './main/main.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common'; // Importa CommonModule
 import { LoginComponent } from './login/login.component';
-import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +11,7 @@ import { ToolbarComponent } from './layout/toolbar/toolbar.component';
     LeftSidebarComponent,
     MainComponent,
     CommonModule,
-    LoginComponent,
-    ToolbarComponent
+    LoginComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

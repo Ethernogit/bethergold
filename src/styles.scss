@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material' as mat;
 @use './styles/theme-colors' as theme;
- 
+@use './styles/table-styles' as table;
 html,
 body {
     height: 100%;
@@ -31,6 +31,36 @@ html {
   
     @include theme.high-contrast-overrides(light);
   }
+
+/* Estilos globales para las pestañas de Material */
+.mat-mdc-tab-group {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.mat-mdc-tab {
+    min-width: 120px !important;
+    max-width: 200px !important;
+}
+
+.mat-mdc-tab .mdc-tab__content {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.mat-mdc-tab .mdc-tab__text-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #455A64;
+    font-weight: 500;
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
 .delete-button{
   background-color: #c04b4b !important;
 }

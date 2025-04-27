@@ -10,7 +10,7 @@ import {
 } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CatalogosService } from '../../../../../shared/services/catalogos.service';
+import { CatalogosService } from '../../../../shared/services/catalogos.service';
 
 @Component({
     selector: 'app-register',

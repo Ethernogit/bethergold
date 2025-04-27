@@ -6,7 +6,7 @@
   width: 16.5625rem;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
   z-index: 1000;
   overflow-x: hidden;
 }
@@ -26,23 +26,21 @@
 }
 
 .sidenav {
-  background-color: transparent !important;
-  transition: all 0.5s ease;
+  background-color: #36647B !important;
+  transition: width 0.2s ease;
   position: fixed;
   z-index: 1;
-  top: 80px;
-  /* Altura del toolbar */
-  width: 12.5625rem;
-  height: calc(100vh - 80px);
-  /* Altura total menos la altura del toolbar */
-  /* box-shadow: 0.063rem 0 1.25rem 0 #8690a3; */
+  top: 0;
+  left: 0;
+  width: 16.5625rem;
+  height: 100vh;
   box-shadow: none;
   border: none;
+  overflow: hidden;
 }
 
 .sidenav-collapsed {
   width: 5rem;
-  top: 15%;
 }
 
 .sidenav .logo-container {
@@ -89,60 +87,78 @@
 
 .sidenav-nav {
   list-style: none;
-  padding: 0.938rem;
+  padding: 2rem 1rem;
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: calc(100% - 3.65rem);
-  cursor: pointer;
+  align-items: flex-start;
+  height: 100%;
+  position: relative;
 }
 
-.sidenav-nav .sidenav-nav-item {
+.sidenav-nav-item {
   width: 100%;
-  margin-bottom: 0.625rem;
+  margin-bottom: 1rem;
 }
 
-.sidenav-nav .sidenav-nav-item .sidenav-nav-link {
+.logout-item {
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+.sidenav-nav-link {
   display: flex;
+  flex-direction: row;
   align-items: center;
   height: 3rem;
-  color: #f3f3f3;
+  color: #B4C6D4;
   text-decoration: none;
-  border-radius: 1.625rem;
-  transition: all 0.5s ease;
+  border-radius: 0.625rem;
+  transition: all 0.2s ease;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  cursor: pointer;
   white-space: nowrap;
-  overflow: hidden;
 }
 
-.sidenav-nav .sidenav-nav-item .sidenav-nav-link .sidenav-link-icon {
-  font-size: 22px;
+.sidenav-collapsed .sidenav-nav-link {
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  padding: 0.5rem;
+}
+
+.sidenav-link-icon {
+  font-size: 24px;
   width: 2rem;
   min-width: 2rem;
+  margin: 0 0.5rem;
   text-align: center;
-  padding: 12px;
+  color: #B4C6D4;
 }
 
-.sidenav-nav .sidenav-nav-item .sidenav-nav-link .sidenav-link-text {
-  margin-left: 1.5rem;
-  opacity: 0;
-  transition: opacity 0.5s ease;
+.sidenav-link-text {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  color: #B4C6D4;
+  transition: opacity 0.2s ease;
 }
 
-.sidenav:not(.sidenav-collapsed) .sidenav-nav-item .sidenav-nav-link .sidenav-link-text {
-  opacity: 1;
-}
-
-.sidenav-nav .sidenav-nav-item:hover .sidenav-nav-link {
-  background-color: #fff;
-  color: #000;
-}
-
-.active {
-  background-color: #fff;
+.collapsed-text {
+  margin-left: 0;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+  white-space: normal;
+  line-height: 1;
 }
 
 .active .sidenav-link-icon,
 .active .sidenav-link-text {
-  color: #000;
+  color: #FEC608 !important;
+}
+
+.logout-item .sidenav-nav-link:hover .sidenav-link-icon,
+.logout-item .sidenav-nav-link:hover .sidenav-link-text {
+  color: #FEC608;
 }

@@ -8,8 +8,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CatalogosService } from '../../../../shared/services/catalogos.service';
-import { Usuarios } from '../../../../interfaces/Usuarios';
+import { CatalogosService } from '../../../shared/services/catalogos.service';
+import { Usuarios } from '../../../interfaces/Usuarios';
 @Component({
   selector: 'app-usuarios',
   imports: [
