@@ -1,0 +1,67 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+mat-dialog-content {
+  min-width: 400px;
+}
+
+.opciones-container {
+  margin-top: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.opciones-container h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.opciones-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.opcion-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.agregar-opcion {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.agregar-opcion mat-form-field {
+  flex: 1;
+}
+
+.agregar-opcion button {
+  margin-top: 8px;
+}

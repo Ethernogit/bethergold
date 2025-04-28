@@ -12,4 +12,7 @@ export class FormulariosService {
   getformproducto(): Observable<any> {
     return this.http.get(`${environment.api}/v1/formularios/productos`);
   }
+  updateformproducto(data: any): Observable<any> {
+    return this.http.put(`${environment.api}/v1/formularios/${data._id}`, data);
+  }
 }
