@@ -15,4 +15,13 @@ export class FormulariosService {
   updateformproducto(data: any): Observable<any> {
     return this.http.put(`${environment.api}/v1/formularios/${data._id}`, data);
   }
+  getFormularioCategoria(): Observable<any> {
+    return this.http.get(`${environment.api}/v1/formularios/categorias`);
+  }
+  getFormularioSubcategoria(id: string): Observable<any> {
+    return this.http.get(`${environment.api}/v1/formularios/subcategorias/${id}`);
+  }
+  deleteCampoCategoria(id: string): Observable<any> {
+    return this.http.delete(`${environment.api}/v1/formularios/categorias/${id}`);
+  }
 }

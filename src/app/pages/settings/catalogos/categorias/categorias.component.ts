@@ -5,6 +5,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { ListadoComponent } from "./listado/listado.component";
 import { SubcategoriasComponent } from './subcategorias/subcategorias.component';
+
 @Component({
   selector: 'app-categorias',
   imports: [ListadoComponent,SubcategoriasComponent,MatIconModule,MatButtonModule],
@@ -19,6 +20,11 @@ export class CategoriasComponent {
 
   openModalRegistroCategorias(): void {
     const dialogRef = this.dialog.open(RegisterComponent, {
+      width: '400px',
+      maxHeight: '90vh',
+      autoFocus: true,
+      disableClose: true,
+      panelClass: 'custom-dialog'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -27,6 +33,7 @@ export class CategoriasComponent {
       }
     });
   }
+  
   openModalRegistroSubcategorias() {
     // Open modal
   }

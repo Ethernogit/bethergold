@@ -1,18 +1,28 @@
-<div class="row justify-content-center text-center">
-    <div class="col-12">
-      <h2 mat-dialog-title >Registrar Categoria</h2>
-      <form [formGroup]="categoriaForm" (ngSubmit)="saveCategoria()">
-        <mat-dialog-content>
-          <p>Ingrese el nombre de la categoria</p>
-            <mat-form-field>
-                <mat-label>Categoria</mat-label>
-                <input matInput formControlName="categoria"/>
-            </mat-form-field>
-        </mat-dialog-content>
-        <mat-dialog-actions>
-            <button mat-raised-button type="submit" [disabled]="categoriaForm.invalid">Guardar</button>
-            <button mat-button mat-dialog-close>Close</button>
-        </mat-dialog-actions>
-      </form>  
-    </div>
+<div class="dialog-container">
+  <h2 mat-dialog-title>Registrar Categoría</h2>
+  <form [formGroup]="categoriaForm" (ngSubmit)="saveCategoria()">
+    <mat-dialog-content>
+      <p>Ingrese los datos de la categoría</p>
+      @for(campo of formularioCampos; track campo._id) {
+        <mat-form-field>
+          <mat-label>{{campo.name | titlecase}}</mat-label>
+          <input matInput [formControlName]="campo.name" [type]="campo.type === 'number' ? 'number' : 'text'"/>
+          @if(categoriaForm.get(campo.name)?.invalid && categoriaForm.get(campo.name)?.touched) {
+            <mat-error>
+              @if(categoriaForm.get(campo.name)?.errors?.['required']) {
+                Este campo es requerido
+              }
+              @if(categoriaForm.get(campo.name)?.errors?.['minlength']) {
+                Mínimo 3 caracteres
+              }
+            </mat-error>
+          }
+        </mat-form-field>
+      }
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-raised-button type="submit" [disabled]="categoriaForm.invalid">Guardar</button>
+      <button mat-button mat-dialog-close>Cancelar</button>
+    </mat-dialog-actions>
+  </form>  
 </div>
